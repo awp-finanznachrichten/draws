@@ -10,6 +10,7 @@ CL_quali <- read_excel("cldraw'21-22.xlsx",
 ECL_quali <- read_excel("cldraw'21-22.xlsx", 
                           sheet = "ECL")
 
+codes_ECL <- c("9w4JB","Eykfr","vpUP3","ISQIA","4g2T6","Iq1Aq","dC1Cf","Jzdhb","4qQtf")
 
 #Qualified Teams
 qualified_teams <- swiss_clubs[1:4,c(1:2,11,12)]
@@ -90,7 +91,6 @@ write.csv(CLQ4_Opponents,"Output/CLQ4_Opponents.csv",row.names = FALSE)
 
 print(CLQ4_Opponents)
 
-
 #Update Datawrapper Charts
 datawrapper_auth("C13EmLLMTymQpzvUWuIIDtcR6i5iWv5wbZBKOoHpCbo1JTIiEltuS6pGwlQ5m8or", overwrite = TRUE)
 
@@ -98,6 +98,7 @@ dw_edit_chart("d8y8U",
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("d8y8U")
 
+#CL
 dw_edit_chart("pYvuP",
               title=paste0("Possible Opponents in CLQ2 for ",qualified_teams$Club[1]),
               intro=paste0(qualified_teams$Club[1]," would be the <b>",CLQ2_Seed," </b>team"),
@@ -116,9 +117,6 @@ dw_edit_chart("dnbae",
               intro=paste0(qualified_teams$Club[1]," would be the <b>",CLQ4_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("dnbae")
-
-
-
 
 
 ###ECL-Quali
@@ -165,7 +163,7 @@ if (qualified_teams$Coefficient[i] > ECLQ3_Opponents$...14[26]) {
 }
 
 #Adapt
-ECLQ3_Opponents$...13 <- substring(ECLQ4_Opponents$...13,1,3)
+ECLQ3_Opponents$...13 <- substring(ECLQ3_Opponents$...13,1,3)
 colnames(ECLQ3_Opponents) <- c("Team","Country","Coefficient")
 ECLQ3_Opponents <- ECLQ3_Opponents[ECLQ3_Opponents$Country !="Sui",]
 
@@ -199,7 +197,34 @@ write.csv(ECLQ4_Opponents,paste0("Output/ECLQ4_Opponents_",i,".csv"),row.names =
 
 print(ECLQ4_Opponents)
 
+dw_edit_chart(codes_ECL[i-1],
+              title=paste0("Possible Opponents in ECLQ2 for ",qualified_teams$Club[i]),
+              intro=paste0(qualified_teams$Club[i]," would be the <b>",ECLQ2_Seed," </b>team"),
+              annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
+dw_publish_chart("9w4JB")
+
+
+dw_edit_chart(codes_ECL[i+2],
+              title=paste0("Possible Opponents in ECLQ3 for ",qualified_teams$Club[i]),
+              intro=paste0(qualified_teams$Club[i]," would be the <b>",ECLQ3_Seed," </b>team"),
+              annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
+dw_publish_chart("ISQIA")
+
+dw_edit_chart(codes_ECL[i+5],
+              title=paste0("Possible Opponents in ECLQ4 for ",qualified_teams$Club[i]),
+              intro=paste0(qualified_teams$Club[i]," would be the <b>",ECLQ4_Seed," </b>team"),
+              annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
+dw_publish_chart("dC1Cf")
+
+
 }
+
+
+
+#ECL Team 3
+
+#ECL Team 4
+
 
 
 
