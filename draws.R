@@ -10,13 +10,17 @@ CL_quali <- read_excel("cldraw'21-22.xlsx",
 ECL_quali <- read_excel("cldraw'21-22.xlsx", 
                           sheet = "ECL")
 
-###First ranked team
-champ <- swiss_clubs[1,c(2,11)]
+
+#Qualified Teams
+qualified_teams <- swiss_clubs[1:4,c(1:2,11,12)]
+colnames(qualified_teams) <- c("Rank","Club","Coefficient","Competition")
+
+write.csv(qualified_teams,"Output/Qualified_Teams.csv",row.names = FALSE)
 
 #Get opponents CLQ2
 CLQ2_Opponents <- CL_quali[15:34,6:8]
 
-if (champ$Coef. > CLQ2_Opponents$...8[10]) {
+if (qualified_teams$Coefficient[1] > CLQ2_Opponents$...8[10]) {
   
   CLQ2_Opponents <- CLQ2_Opponents[11:20,]
   CLQ2_Seed <- "seeded"
@@ -39,7 +43,7 @@ print(CLQ2_Opponents)
 #Get opponents CLQ3
 CLQ3_Opponents <- CL_quali[15:26,10:12]
 
-if (champ$Coef. > CLQ3_Opponents$...12[6]) {
+if (qualified_teams$Coefficient[1] > CLQ3_Opponents$...12[6]) {
   
   CLQ3_Opponents <- CLQ3_Opponents[7:12,]
   CLQ3_Seed <- "seeded"
@@ -62,7 +66,7 @@ print(CLQ3_Opponents)
 #Get opponents CLQ4
 CLQ4_Opponents <- CL_quali[15:22,14:16]
 
-if (champ$Coef. > CLQ4_Opponents$...16[4]) {
+if (qualified_teams$Coefficient[1] > CLQ4_Opponents$...16[4]) {
   
   CLQ4_Opponents <- CLQ4_Opponents[5:8,]
   CLQ4_Seed <- "seeded"
@@ -89,21 +93,21 @@ source("commit.R")
 datawrapper_auth("C13EmLLMTymQpzvUWuIIDtcR6i5iWv5wbZBKOoHpCbo1JTIiEltuS6pGwlQ5m8or", overwrite = TRUE)
 
 dw_edit_chart("pYvuP",
-              title=paste0("Possible Opponents in CLQ2 for ",champ$Clubs),
-              intro=paste0(champ$Clubs," would be the <b>",CLQ2_Seed," </b>team"),
+              title=paste0("Possible Opponents in CLQ2 for ",qualified_teams$Club[1]),
+              intro=paste0(qualified_teams$Club[1]," would be the <b>",CLQ2_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("pYvuP")
 
 
 dw_edit_chart("PY4I0",
-              title=paste0("Possible Opponents in CLQ3 for ",champ$Clubs),
-              intro=paste0(champ$Clubs," would be the <b>",CLQ3_Seed," </b>team"),
+              title=paste0("Possible Opponents in CLQ3 for ",qualified_teams$Club[1]),
+              intro=paste0(qualified_teams$Club[1]," would be the <b>",CLQ3_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("PY4I0")
 
 dw_edit_chart("dnbae",
-              title=paste0("Possible Opponents in CLQ4 for ",champ$Clubs),
-              intro=paste0(champ$Clubs," would be the <b>",CLQ4_Seed," </b>team"),
+              title=paste0("Possible Opponents in CLQ4 for ",qualified_teams$Club[1]),
+              intro=paste0(qualified_teams$Club[1]," would be the <b>",CLQ4_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("dnbae")
 
