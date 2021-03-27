@@ -97,13 +97,13 @@ dw_publish_chart("pYvuP")
 
 dw_edit_chart("PY4I0",
               title=paste0("Possible Opponents in CLQ3 for ",champ$Clubs),
-              intro=paste0(champ$Clubs," would be the <b>",CLQ2_Seed," </b>team"),
+              intro=paste0(champ$Clubs," would be the <b>",CLQ3_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("PY4I0")
 
 dw_edit_chart("dnbae",
               title=paste0("Possible Opponents in CLQ4 for ",champ$Clubs),
-              intro=paste0(champ$Clubs," would be the <b>",CLQ2_Seed," </b>team"),
+              intro=paste0(champ$Clubs," would be the <b>",CLQ4_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
 dw_publish_chart("dnbae")
 
