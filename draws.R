@@ -201,36 +201,23 @@ dw_edit_chart(codes_ECL[i-1],
               title=paste0("Possible Opponents in ECLQ2 for ",qualified_teams$Club[i]),
               intro=paste0(qualified_teams$Club[i]," would be the <b>",ECLQ2_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
-dw_publish_chart("9w4JB")
+dw_publish_chart(codes_ECL[i-1])
 
 
 dw_edit_chart(codes_ECL[i+2],
               title=paste0("Possible Opponents in ECLQ3 for ",qualified_teams$Club[i]),
               intro=paste0(qualified_teams$Club[i]," would be the <b>",ECLQ3_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
-dw_publish_chart("ISQIA")
+dw_publish_chart(codes_ECL[i+2])
 
 dw_edit_chart(codes_ECL[i+5],
               title=paste0("Possible Opponents in ECLQ4 for ",qualified_teams$Club[i]),
               intro=paste0(qualified_teams$Club[i]," would be the <b>",ECLQ4_Seed," </b>team"),
               annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
-dw_publish_chart("dC1Cf")
+dw_publish_chart(codes_ECL[i+5])
 
 
 }
-
-
-
-#ECL Team 3
-
-#ECL Team 4
-
-
-
-
-
-
-
 
 #Commit
 source("commit.R")
