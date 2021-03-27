@@ -17,6 +17,10 @@ colnames(qualified_teams) <- c("Rank","Club","Coefficient","Competition")
 
 write.csv(qualified_teams,"Output/Qualified_Teams.csv",row.names = FALSE)
 
+print(qualified_teams)
+
+###CL-Quali
+
 #Get opponents CLQ2
 CLQ2_Opponents <- CL_quali[15:34,6:8]
 
@@ -86,8 +90,6 @@ write.csv(CLQ4_Opponents,"Output/CLQ4_Opponents.csv",row.names = FALSE)
 
 print(CLQ4_Opponents)
 
-#Commit
-source("commit.R")
 
 #Update Datawrapper Charts
 datawrapper_auth("C13EmLLMTymQpzvUWuIIDtcR6i5iWv5wbZBKOoHpCbo1JTIiEltuS6pGwlQ5m8or", overwrite = TRUE)
@@ -117,4 +119,94 @@ dw_publish_chart("dnbae")
 
 
 
+
+
+###ECL-Quali
+
+for (i in 2:nrow(qualified_teams)) {
+
+#Get opponents ECLQ2
+ECLQ2_Opponents <- ECL_quali[1:90,7:9]
+
+if (qualified_teams$Coefficient[i] > ECLQ2_Opponents$...9[45]) {
+  
+  ECLQ2_Opponents <- ECLQ2_Opponents[46:90,]
+  ECLQ2_Seed <- "seeded"
+  
+} else {
+  
+  ECLQ2_Opponents <- ECLQ2_Opponents[1:45,]
+  ECLQ2_Seed <- "unseeded"
+  
+}
+
+#Adapt
+ECLQ2_Opponents$...8 <- substring(ECLQ2_Opponents$...8,1,3)
+colnames(ECLQ2_Opponents) <- c("Team","Country","Coefficient")
+ECLQ2_Opponents <- ECLQ2_Opponents[ECLQ2_Opponents$Country !="Sui",]
+
+write.csv(ECLQ2_Opponents,paste0("Output/ECLQ2_Opponents_",i,".csv"),row.names = FALSE)
+
+print(ECLQ2_Opponents)
+
+#Get opponents ECLQ3
+ECLQ3_Opponents <- ECL_quali[1:52,12:14]
+
+if (qualified_teams$Coefficient[i] > ECLQ3_Opponents$...14[26]) {
+  
+  ECLQ3_Opponents <- ECLQ3_Opponents[27:52,]
+  ECLQ3_Seed <- "seeded"
+  
+} else {
+  
+  ECLQ3_Opponents <- ECLQ3_Opponents[1:26,]
+  ECLQ3_Seed <- "unseeded"
+  
+}
+
+#Adapt
+ECLQ3_Opponents$...13 <- substring(ECLQ4_Opponents$...13,1,3)
+colnames(ECLQ3_Opponents) <- c("Team","Country","Coefficient")
+ECLQ3_Opponents <- ECLQ3_Opponents[ECLQ3_Opponents$Country !="Sui",]
+
+write.csv(ECLQ3_Opponents,paste0("Output/ECLQ3_Opponents_",i,".csv"),row.names = FALSE)
+
+print(ECLQ3_Opponents)
+
+
+#Get opponents ECLQ4
+ECLQ4_Opponents <- ECL_quali[1:34,17:19]
+
+
+if (qualified_teams$Coefficient[i] > ECLQ4_Opponents$...19[17]) {
+  
+  ECLQ4_Opponents <- ECLQ4_Opponents[18:34,]
+  ECLQ4_Seed <- "seeded"
+  
+} else {
+  
+  ECLQ4_Opponents <- ECLQ4_Opponents[1:17,]
+  ECLQ4_Seed <- "unseeded"
+  
+}
+
+#Adapt
+ECLQ4_Opponents$...18 <- substring(ECLQ4_Opponents$...18,1,3)
+colnames(ECLQ4_Opponents) <- c("Team","Country","Coefficient")
+ECLQ4_Opponents <- ECLQ4_Opponents[ECLQ4_Opponents$Country !="Sui",]
+
+write.csv(ECLQ4_Opponents,paste0("Output/ECLQ4_Opponents_",i,".csv"),row.names = FALSE)
+
+print(ECLQ4_Opponents)
+
+}
+
+
+
+
+
+
+
+#Commit
+source("commit.R")
   
