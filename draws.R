@@ -92,6 +92,10 @@ source("commit.R")
 #Update Datawrapper Charts
 datawrapper_auth("C13EmLLMTymQpzvUWuIIDtcR6i5iWv5wbZBKOoHpCbo1JTIiEltuS6pGwlQ5m8or", overwrite = TRUE)
 
+dw_edit_chart("d8y8U",
+              annotate=paste0("Last Update: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
+dw_publish_chart("d8y8U")
+
 dw_edit_chart("pYvuP",
               title=paste0("Possible Opponents in CLQ2 for ",qualified_teams$Club[1]),
               intro=paste0(qualified_teams$Club[1]," would be the <b>",CLQ2_Seed," </b>team"),
