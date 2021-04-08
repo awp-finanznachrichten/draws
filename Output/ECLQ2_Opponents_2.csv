@@ -1,6 +1,4 @@
 "Team","Country","Coefficient"
-"CSKA","Rus",40.0000000263158
-"Anderlecht","Bel",25.000000016129
 "Astana","Kaz",22.500000015625
 "Feyenoord","Ned",21.0000000147059
 "Maccabi Tel-Aviv","Isr",20.5000000140845
@@ -22,11 +20,14 @@
 "Slovan Liberec","Cze",8.00000000729927
 "CSKA Sofia","Bul",8.00000000724638
 "Dudelange","Lux",8.0000000070922
+"Dinamo Moscow","Rus",7.67600000675676
 "Aberdeen","Sco",7.50000000662252
 "The New Saints","Wal",7.50000000653595
 "Spartak Trnava","Svk",7.50000000649351
+"Oostende","Bel",7.30000000636943
+"Jablonec","Cze",7.00000000617284
 "Livingston","Sco",6.6750000002
-"Desna","Ukr",6.62000000584795
+"Vorskla","Ukr",6.62000000571429
 "Alashkert","Arm",6.50000000558659
 "Alanyaspor","Tur",6.02000000546448
 "Osijek","Cro",6.00000000526316
@@ -39,6 +40,5 @@
 "Domzale","Slo",5.5000000046729
 "Vojvodina","Srb",5.35000000462963
 "Cukaricki","Srb",5.35000000458716
-"Slovacko","Cze",5.28000000025
 "HNK Gorica","Cro",5.25500000033333
 "Klaksvík","Far",5.25000000442478
